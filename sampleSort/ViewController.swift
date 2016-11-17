@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var lunchMenu:NSArray = [["number" : 5,"name" : "banana"],["number" : 2,"name" : "apple"],["number" : 3,"name" : "mango"],["number": 1,"name" : "lemon"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let sortDescription = NSSortDescriptor(key: "number", ascending: true)
+        let sortDescAry = [sortDescription]
+        lunchMenu = lunchMenu.sortedArray(using: sortDescAry) as NSArray
+        
+        
+        print(lunchMenu)
     }
 
     override func didReceiveMemoryWarning() {
